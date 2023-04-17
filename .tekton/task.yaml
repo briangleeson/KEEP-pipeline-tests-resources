@@ -14,8 +14,10 @@ spec:
           echo "Endpoint - https://cloud.ibm.com";
           echo "=======================";
           sleep 10;
-          NEW_KEY=$(curl -s -o /dev/null -L -w %{http_code} https://cloud.ibm.com);
+          alive=$(curl -s -o /dev/null -L -w %{http_code} https://cloud.ibm.com);
           if [ "$alive" == "200" ];
-          then echo "TEST PASS - 200"; exit 0;
-          else echo "TEST FAIL - $(NEW_KEY)"; exit 1;
+          then
+            echo "TEST PASS - $(alive)"; exit 0;
+          else
+            echo "TEST FAIL - $(alive)"; exit 1;
           fi
