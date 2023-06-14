@@ -10,7 +10,7 @@ spec:
       description: echo property 2
   steps:
     - name: task-one-step-one
-      image: centos
+      image: us.icr.io/projects-pipeline-images/projects-pipeline-image@sha256:fa97ac9b029442892f4c9c05b11b848178b67f9d59531d8422daed734c806fd2
       env:
         - name: ECHO1
           value: $(inputs.params.echo1)
@@ -24,13 +24,21 @@ spec:
           echo "echo1: ${ECHO1}";
           echo "echo2: ${ECHO2}";
           echo "=======================";
-          echo "IBM Cloud - Status";
-          echo "Using https://github.com/idsb3t1/KEEP-pipeline-tests-resources.git";
-          echo "Endpoint - https://cloud.ibm.com";
+          echo "image: us.icr.io/projects-pipeline-images/projects-pipeline-image@sha256:fa97ac9b029442892f4c9c05b11b848178b67f9d59531d8422daed734c806fd2"
+    - name: task-one-step-two
+      image: "us.icr.io/projects-pipeline-images/projects-pipeline-image@sha256:fa97ac9b029442892f4c9c05b11b848178b67f9d59531d8422daed734c806fd2"
+      env:
+        - name: ECHO1
+          value: $(inputs.params.echo1)
+        - name: ECHO2
+          value: $(inputs.params.echo2)
+      command: ["bash", "-c"]
+      args:
+        - |
+          #!/usr/bin/env bash
           echo "=======================";
-          sleep 60;
-          alive=$(curl -s -o /dev/null -L -w %{http_code} https://cloud.ibm.com);
-          if [ "$alive" == "200" ];
-          then echo "TEST PASS - 200"; exit 0;
-          else echo "TEST FAIL - $alive"; exit 1;
-          fi
+          echo "echo1: ${ECHO1}";
+          echo "echo2: ${ECHO2}";
+          echo "=======================";
+          echo "image: \"us.icr.io/projects-pipeline-images/projects-pipeline-image@sha256:fa97ac9b029442892f4c9c05b11b848178b67f9d59531d8422daed734c806fd2\""
+          echo "=======================";
