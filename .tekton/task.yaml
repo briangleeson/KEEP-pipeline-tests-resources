@@ -25,20 +25,3 @@ spec:
           echo "echo2: ${ECHO2}";
           echo "=======================";
           echo "image: us.icr.io/projects-pipeline-images/projects-pipeline-image@sha256:fa97ac9b029442892f4c9c05b11b848178b67f9d59531d8422daed734c806fd2"
-    - name: task-one-step-two
-      image: "us.icr.io/projects-pipeline-images/projects-pipeline-image@sha256:fa97ac9b029442892f4c9c05b11b848178b67f9d59531d8422daed734c806fd2"
-      env:
-        - name: ECHO1
-          value: $(inputs.params.echo1)
-        - name: ECHO2
-          value: $(inputs.params.echo2)
-      command: ["bash", "-c"]
-      args:
-        - |
-          #!/usr/bin/env bash
-          echo "=======================";
-          echo "echo1: ${ECHO1}";
-          echo "echo2: ${ECHO2}";
-          echo "=======================";
-          echo "image: \"us.icr.io/projects-pipeline-images/projects-pipeline-image@sha256:fa97ac9b029442892f4c9c05b11b848178b67f9d59531d8422daed734c806fd2\""
-          echo "=======================";
