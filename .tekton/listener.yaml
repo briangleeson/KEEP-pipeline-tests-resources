@@ -8,12 +8,13 @@ spec:
       description: echo property 1
     - name: echo2
       description: echo property 2
+    - name: pull-secret
+      description: pull-secret
   resourcetemplates:
     - apiVersion: v1
       kind: Secret
       data:
-        .dockerconfigjson: >-
-          eyJhdXRocyI6eyJ1cy5pY3IuaW8iOnsidXNlcm5hbWUiOiJpYW1hcGlrZXkiLCJwYXNzd29yZCI6IjZGUXN6S2NHNlFCUzZCZWJmendEX3hqSmFINHNkU2UyX3RySFhOS1Ixby0wIiwiZW1haWwiOiJicmlhbi5nbGVlc29uQGllLmlibS5jb20iLCJhdXRoIjoiYVdGdFlYQnBhMlY1T2paR1VYTjZTMk5ITmxGQ1V6WkNaV0ptZW5kRVgzaHFTbUZJTkhOa1UyVXlYM1J5U0ZoT1MxSXhieTB3In19fQ==
+        .dockerconfigjson: $(params.pull-secret)
       metadata:
         name: projects-image-pull-secret
       type: kubernetes.io/dockerconfigjson
@@ -32,6 +33,8 @@ spec:
             value: $(params.echo1)
           - name: echo2
             value: $(params.echo2)
+          - name: pull-secret
+            value: $(params.pull-secret)
       podTemplate:
         imagePullSecrets:
           - name: projects-image-pull-secret

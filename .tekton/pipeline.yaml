@@ -8,6 +8,8 @@ spec:
       description: echo property 1
     - name: echo2
       description: echo property 2
+    - name: pull-secret
+      description: pull-secret
   tasks:
     - name: task1
       taskRef:
@@ -17,3 +19,5 @@ spec:
           value: $(params.echo1)
         - name: echo2
           value: $(params.echo2)
+        - name: pull-secret
+          value: $(params.pull-secret)
