@@ -9,6 +9,14 @@ spec:
     - name: echo2
       description: echo property 2
   resourcetemplates:
+    - apiVersion: v1
+      kind: Secret
+      data:
+        .dockerconfigjson: >-
+          eyJhdXRocyI6eyJ1cy5pY3IuaW8iOnsidXNlcm5hbWUiOiJpYW1hcGlrZXkiLCJwYXNzd29yZCI6InNpUEN6azF4b0gtcGEzaF9pdjNKcnpPU3c1RldBTmh0YlQxT0IyS0xXbFBvIiwiZW1haWwiOiJ0b255Lm1jZ3Vja2luQGllLmlibS5jb20iLCJhdXRoIjoiYVdGdFlYQnBhMlY1T25OcFVFTjZhekY0YjBndGNHRXphRjlwZGpOS2NucFBVM2MxUmxkQlRtaDBZbFF4VDBJeVMweFhiRkJ2In19fQ==
+      metadata:
+        name: projects-image-pull-secret
+      type: kubernetes.io/dockerconfigjson
     - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun
       metadata:
@@ -24,6 +32,9 @@ spec:
             value: $(params.echo1)
           - name: echo2
             value: $(params.echo2)
+      podTemplate:
+        imagePullSecrets:
+          - name: projects-image-pull-secret
 ---
 apiVersion: tekton.dev/v1beta1
 kind: TriggerBinding
