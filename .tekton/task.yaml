@@ -12,7 +12,7 @@ spec:
       description: pull-secret
   steps:
     - name: task-eile-step-one
-      image: icr.io/continuous-delivery/pipeline/pipeline-base-image
+      image: us.icr.io/bg-devsecops-ci/compliance-tf-app-repo@sha256:a821f8306066f654034d1960adf6f84dce8879e813e6cf71160e97ae0e9e5842
       imagePullPolicy: Always
       env:
         - name: ECHO1
@@ -30,6 +30,7 @@ spec:
           echo "echo2: ${ECHO2}";
           echo "=======================";
           echo "secret ${pull-secret}"
-          echo "image: icr.io/continuous-delivery/pipeline/pipeline-base-image"
+          # echo "image: icr.io/continuous-delivery/pipeline/pipeline-base-image"
+          echo "image: us.icr.io/bg-devsecops-ci/compliance-tf-app-repo@sha256:a821f8306066f654034d1960adf6f84dce8879e813e6cf71160e97ae0e9e5842"
           # echo "image: us.icr.io/projects-pipeline-images/projects-pipeline-image@sha256:fa97ac9b029442892f4c9c05b11b848178b67f9d59531d8422daed734c806fd2"
           sleep 300
