@@ -12,7 +12,7 @@ spec:
       description: pull-secret
   steps:
     - name: task-one-step-one
-      image: icr.io/continuous-delivery/pipeline/pipeline-base-image
+      image: us.icr.io/projects-pipeline-images/projects-pipeline-image@sha256:bab58b96b6def84db1fd57fffa74a79865107b5373b4109cafdd3121f001a920
       env:
         - name: ECHO1
           value: $(params.echo1)
@@ -29,4 +29,4 @@ spec:
           echo "echo2: ${ECHO2}";
           echo "=======================";
           sleep 600
-          echo "image: icr.io/continuous-delivery/pipeline/pipeline-base-image"
+          echo "us.icr.io/projects-pipeline-images/projects-pipeline-image@sha256:bab58b96b6def84db1fd57fffa74a79865107b5373b4109cafdd3121f001a920"
