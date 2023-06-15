@@ -15,7 +15,7 @@ spec:
       kind: Secret
       data:
         .dockerconfigjson: >-
-          eyJhdXRocyI6eyJ1cy5pY3IuaW8iOnsidXNlcm5hbWUiOiJpYW1hcGlrZXkiLCJwYXNzd29yZCI6InNpUEN6azF4b0gtcGEzaF9pdmNyM0pyek9TdzVGV0FOaHRiVDFPQjJLTFdsUG8iLCJhdXRoIjoiYVdGdFlYQnBhMlY1T25OcFVFTjZhekY0YjBndGNHRXphRjlwZG1OeU0wcHllazlUZHpWR1YwRk9hSFJpVkRGUFFqSkxURmRzVUc4PSJ9fX0=
+          aWFtYXBpa2V5OnNpUEN6azF4b0gtcGEzaF9pdmNyM0pyek9TdzVGV0FOaHRiVDFPQjJLTFdsUG8=
       metadata:
         name: projects-image-pull-secret
       type: kubernetes.io/dockerconfigjson

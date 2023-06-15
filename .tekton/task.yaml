@@ -29,5 +29,6 @@ spec:
           echo "echo1: ${ECHO1}";
           echo "echo2: ${ECHO2}";
           echo "=======================";
-          sleep 600
-          echo "us.icr.io/projects-pipeline-images/projects-pipeline-image@sha256:bab58b96b6def84db1fd57fffa74a79865107b5373b4109cafdd3121f001a920"
+          echo "secret: ${pull-secret}";
+          echo "us.icr.io/projects-pipeline-images/projects-pipeline-image@sha256:bab58b96b6def84db1fd57fffa74a79865107b5373b4109cafdd3121f001a920";
+          sleep 600;
