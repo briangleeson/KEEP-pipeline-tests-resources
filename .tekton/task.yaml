@@ -13,6 +13,7 @@ spec:
   steps:
     - name: task-one-step-one
       image: us.icr.io/projects-pipeline-images/projects-pipeline-image@sha256:bab58b96b6def84db1fd57fffa74a79865107b5373b4109cafdd3121f001a920
+      imagePullPolicy: Always
       env:
         - name: ECHO1
           value: $(params.echo1)
