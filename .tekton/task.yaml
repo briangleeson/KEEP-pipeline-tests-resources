@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: task1
+  name: task-eile
 spec:
   params:
     - name: echo1
@@ -11,7 +11,7 @@ spec:
     - name: pull-secret
       description: pull-secret
   steps:
-    - name: task-one-step-one
+    - name: task-eile-step-one
       image: us.icr.io/continuous-delivery/pipeline/pipeline-base-image
       imagePullPolicy: Always
       env:

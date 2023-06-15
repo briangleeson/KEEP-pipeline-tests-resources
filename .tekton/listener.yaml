@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: TriggerTemplate
 metadata:
-  name: pipeline-template
+  name: pipeline-eile-template
 spec:
   params:
     - name: echo1
@@ -17,7 +17,7 @@ spec:
         .dockerconfigjson: >-
           eyJhdXRocyI6eyJ1cy5pY3IuaW8iOnsidXNlcm5hbWUiOiJpYW1hcGlrZXkiLCJwYXNzd29yZCI6ImxSWDBTd0htcGpLMWg0eGYwYjVoTVlyNWNaTWswYkVEaUh3b3EtNmtUTWVxIiwiZW1haWwiOiJicmlhbi5nbGVlc29uQGllLmlibS5jb20iLCJhdXRoIjoiYVdGdFlYQnBhMlY1T214U1dEQlRkMGh0Y0dwTE1XZzBlR1l3WWpWb1RWbHlOV05hVFdzd1lrVkVhVWgzYjNFdE5tdFVUV1Z4In19fQ==
       metadata:
-        name: image-pull-secret
+        name: image-eile-pull-secret
       type: kubernetes.io/dockerconfigjson
     - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun
@@ -28,7 +28,7 @@ spec:
           generatedBy: "triggers-example"
       spec:
         pipelineRef:
-          name: sample-pipeline
+          name: sample-eile-pipeline
         params:
           - name: echo1
             value: $(params.echo1)
@@ -38,20 +38,20 @@ spec:
             value: $(params.pull-secret)
       podTemplate:
         imagePullSecrets:
-          - name: image-pull-secret
+          - name: image-eile-pull-secret
 ---
 apiVersion: tekton.dev/v1beta1
 kind: TriggerBinding
 metadata:
-  name: pipeline-binding
+  name: pipeline-eile-binding
 ---
 apiVersion: tekton.dev/v1beta1
 kind: EventListener
 metadata:
-  name: listener-bg-secret
+  name: listener-eile-secret
 spec:
   triggers:
     - binding:
-        name: pipeline-binding
+        name: pipeline-eile-binding
       template:
-        name: pipeline-template
+        name: pipeline-eile-template

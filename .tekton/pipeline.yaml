@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: sample-pipeline
+  name: sample-eile-pipeline
 spec:
   params:
     - name: echo1
@@ -11,9 +11,9 @@ spec:
     - name: pull-secret
       description: pull-secret
   tasks:
-    - name: task1
+    - name: task-eile-1
       taskRef:
-        name: task1
+        name: task-eile
       params:
         - name: echo1
           value: $(params.echo1)
