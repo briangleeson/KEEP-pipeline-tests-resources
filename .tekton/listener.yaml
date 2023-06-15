@@ -11,13 +11,6 @@ spec:
     - name: pull-secret
       description: pull-secret
   resourcetemplates:
-    - apiVersion: v1
-      kind: Secret
-      data:
-        .dockerconfigjson: $(params.pull-secret)
-      metadata:
-        name: projects-image-pull-secret
-      type: kubernetes.io/dockerconfigjson
     - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun
       metadata:
@@ -37,7 +30,7 @@ spec:
             value: $(params.pull-secret)
       podTemplate:
         imagePullSecrets:
-          - name: projects-image-pull-secret
+          - name: pull-icr-secret
 ---
 apiVersion: tekton.dev/v1beta1
 kind: TriggerBinding
@@ -47,7 +40,7 @@ metadata:
 apiVersion: tekton.dev/v1beta1
 kind: EventListener
 metadata:
-  name: listener
+  name: listener-cluster-secret
 spec:
   triggers:
     - binding:
