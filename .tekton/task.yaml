@@ -24,6 +24,8 @@ spec:
           echo "================"
           echo "endpoint: ${SECRETS_MANAGER_ENDPOINT}"
           echo "secure key: ${SECRETS_MANAGER_APIKEY}"
-          echo "secure key base64: ${base64 -e SECRETS_MANAGER_APIKEY}"
+          # echo "secure key base64: ${base64 -e SECRETS_MANAGER_APIKEY}"
+          echo "================"
+          base64 -e SECRETS_MANAGER_APIKEY
           echo "================"
           ibmcloud login -a ${SECRETS_MANAGER_ENDPOINT} --apikey ${SECRETS_MANAGER_APIKEY} --no-region
