@@ -22,5 +22,7 @@ spec:
           #!/usr/bin/env bash
           echo "Secrets Manager Test"
           echo "================"
-          echo "env: ${SECRETS_MANAGER_ENDPOINT}"
+          echo "endpoint: ${SECRETS_MANAGER_ENDPOINT}"
+          echo "secure key: ${SECRETS_MANAGER_APIKEY}"
+          echo "================"
           ibmcloud login -a ${SECRETS_MANAGER_ENDPOINT} --apikey ${SECRETS_MANAGER_APIKEY} --no-region
