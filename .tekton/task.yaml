@@ -24,7 +24,8 @@ spec:
           echo "================"
           echo "endpoint: ${SECRETS_MANAGER_ENDPOINT}"
           echo "secure key: ${SECRETS_MANAGER_APIKEY}"
-          # echo "secure key base64: ${base64 -e SECRETS_MANAGER_APIKEY}"
+          test1==$(echo $SECRETS_MANAGER_APIKEY | base64)
+          echo "secure key base64: ${test1}"
           echo "================"
           base64 -e $SECRETS_MANAGER_APIKEY
           echo "================"
