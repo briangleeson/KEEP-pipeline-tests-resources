@@ -13,7 +13,7 @@ spec:
           echo "Using https://github.com/idsb3t1/KEEP-pipeline-tests-resources.git";
           echo "Endpoint - https://cloud.ibm.com";
           echo "=======================";
-          sleep 60;
+          sleep 20;
           alive=$(curl -s -o /dev/null -L -w %{http_code} https://cloud.ibm.com);
           if [ "$alive" == "200" ];
           then
