@@ -17,7 +17,7 @@ spec:
           value: https://github.com/briangleeson/KEEP-pipeline-tests-resources
         - name: branch
           value: echo-secure
-        - name: ibmcloud-apikey-secret-key
+        - name: apikey
           value: $(params.API_KEY)
       workspaces:
         - name: output
