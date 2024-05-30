@@ -5,7 +5,7 @@ metadata:
 spec:
   workspaces:
     - name: output
-      workspace: pipeline-ws
+      mountPath: /artifacts
   steps:
     - name: task-one-step-one
       image: centos
