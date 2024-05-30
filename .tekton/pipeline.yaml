@@ -3,6 +3,8 @@ kind: Pipeline
 metadata:
   name: sample-pipeline
 spec:
+  workspaces:
+    - name: pipeline-ws
   params:
     - name: API_KEY
       description: api key
