@@ -26,8 +26,8 @@ spec:
         pipelineRef:
           name: sample-pipeline
         params:
-          - name: ACCOUNT_API_KEY_1651315
-            value: $(params.ACCOUNT_API_KEY_1651315)
+          - name: API_KEY
+            value: $(params.API_KEY)
         workspaces:
           - name: pipeline-ws
             persistentVolumeClaim:
