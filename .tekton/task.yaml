@@ -16,6 +16,8 @@ spec:
         - echo "=======================";
           echo "secure1 = ${secure1}";
           echo "=======================";
+          echo $(ls -a);
+          echo "=======================";
           echo $(ls -a ./tekton);
           echo "=======================";
           echo $(ls -a ./workspace);
