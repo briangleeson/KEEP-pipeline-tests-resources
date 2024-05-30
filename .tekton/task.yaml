@@ -21,7 +21,7 @@ spec:
           echo "=======================";
           echo $(ls -a);
           echo "=======================";
-          echo $(ls -a ./tekton);
+          echo $(ls -a ./artifacts);
           echo "=======================";
           echo $(ls -a ./workspace);
           echo "=======================";
