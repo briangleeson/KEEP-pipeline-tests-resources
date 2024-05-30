@@ -26,6 +26,6 @@ spec:
             echo "TEST FAIL - $alive"; exit 1;
           fi
           echo "=======================";
-          echo "secure1 = ${secure1}" 
+          echo "secure1 = ${secure1}";
           echo "=======================";
           
