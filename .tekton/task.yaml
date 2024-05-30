@@ -3,6 +3,9 @@ kind: Task
 metadata:
   name: task1
 spec:
+  workspaces:
+    - name: output
+      workspace: pipeline-ws
   steps:
     - name: task-one-step-one
       image: centos
