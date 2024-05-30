@@ -7,7 +7,7 @@ spec:
     - apiVersion: v1
       kind: PersistentVolumeClaim
       metadata:
-        name: pipelinerun-$(uid)-pvc
+        name: log-service-test-$(uid)-pvc
       spec:
         resources:
           requests:
