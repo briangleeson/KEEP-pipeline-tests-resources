@@ -23,5 +23,6 @@ spec:
         - name: output
           workspace: pipeline-ws
     - name: task1
+      runAfter: [clone-repo]
       taskRef:
         name: task1
