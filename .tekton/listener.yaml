@@ -4,6 +4,17 @@ metadata:
   name: pipeline-template
 spec:
   resourcetemplates:
+    - apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
+        name: pipelinerun-$(uid)-pvc
+      spec:
+        resources:
+          requests:
+            storage:  5Gi
+        volumeMode: Filesystem
+        accessModes:
+          - ReadWriteOnce
     - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun
       metadata:
@@ -14,6 +25,9 @@ spec:
       spec:
         pipelineRef:
           name: sample-pipeline
+        params:
+          - name: ACCOUNT_API_KEY_1651315
+            value: $(params.ACCOUNT_API_KEY_1651315)
         workspaces:
           - name: pipeline-ws
             persistentVolumeClaim:
