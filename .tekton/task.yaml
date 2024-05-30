@@ -22,6 +22,7 @@ spec:
           echo $(ls -a);
           echo "=======================";
           echo $(ls -a ./artifacts);
+          cat ./artifacts/.tekton/riti-logs.txt;
           echo "=======================";
           echo $(ls -a ./workspace);
           echo "=======================";
