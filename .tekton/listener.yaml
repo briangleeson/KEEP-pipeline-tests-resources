@@ -28,6 +28,8 @@ spec:
         params:
           - name: API_KEY
             value: $(params.API_KEY)
+          - name: API
+            value: $(params.API)
         workspaces:
           - name: pipeline-ws
             persistentVolumeClaim:
