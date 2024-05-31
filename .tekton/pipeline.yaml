@@ -8,6 +8,8 @@ spec:
   params:
     - name: API_KEY
       description: api key
+    - name: API
+      description: api URL
   tasks:
     - name: clone-repo
       taskRef:
@@ -19,6 +21,8 @@ spec:
           value: echo-secure
         - name: apikey
           value: $(params.API_KEY)
+        - name:  ibmcloud-api
+          value: $(params.API)
       workspaces:
         - name: output
           workspace: pipeline-ws
