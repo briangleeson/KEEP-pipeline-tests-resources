@@ -4,3 +4,4 @@ Note (2021/11/04): Due to git auth token issues, the DEV e2e tests are using htt
 The other envs (mon01, dal, wdc, lon, fra, tok, osa, syd, tor, sao, bnpp) all use the original repo for the E2E tests: https://github.com/idsb3t1/KEEP-pipeline-tests-resource
 
 Edit 1
+Edit 2
