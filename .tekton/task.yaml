@@ -11,6 +11,9 @@ spec:
         - echo "=======================";
           echo "IBM Cloud - Networking debug";
           echo "=======================";
+          echo "Installing networking tools";
+          sudo apt install net-tools
+          echo "=======================";
           echo "[DEBUG] Netstat";
           netstat -tulpn   | grep :9999
           echo "=======================";
@@ -18,4 +21,6 @@ spec:
           lsof -> lsof -i :9999
           echo "=======================";
           echo "[DEBUG] ping";
-          ping localhost
+          ping -c 10 localhost
+          echo "=======================";
+          echo "COMPLETED";
