@@ -9,15 +9,13 @@ spec:
       command: ["bash", "-c"]
       args:
         - echo "=======================";
-          echo "IBM Cloud - Status";
-          echo "Using https://github.com/idsb3t1/KEEP-pipeline-tests-resources.git";
-          echo "Endpoint - https://cloud.ibm.com";
+          echo "IBM Cloud - Networking debug";
           echo "=======================";
-          sleep 20;
-          alive=$(curl -s -o /dev/null -L -w %{http_code} https://cloud.ibm.com);
-          if [ "$alive" == "200" ];
-          then
-            echo "TEST PASS - $alive"; exit 0;
-          else
-            echo "TEST FAIL - $alive"; exit 1;
-          fi
+          echo "[DEBUG] Netstat";
+          netstat -tulpn   | grep :9999
+          echo "=======================";
+          echo "[DEBUG] LSOF";
+          lsof -> lsof -i :9999
+          echo "=======================";
+          echo "[DEBUG] ping";
+          ping localhost
