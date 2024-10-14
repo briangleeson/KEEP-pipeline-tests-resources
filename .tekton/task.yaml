@@ -12,7 +12,7 @@ spec:
           echo "IBM Cloud - Networking debug";
           echo "=======================";
           echo "Installing networking tools";
-          sudo apt install net-tools;
+          sudo apt-get install net-tools;
           echo "=======================";
           echo "[DEBUG] Netstat";
           netstat -tulpn | grep :9999;
