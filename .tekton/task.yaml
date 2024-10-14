@@ -12,10 +12,11 @@ spec:
           echo "IBM Cloud - Networking debug";
           echo "=======================";
           echo "Installing networking tools";
-          sudo apt-get update -y;
-          sudo apt-get install -y net-tools;
-          sudo apt-get install -y iputils-ping;
-          sudo apt-get install -y lsof
+          sudo apt-get update -y -q;
+          sudo apt-get install -y -q net-tools;
+          sudo apt-get install -y -q iputils-ping;
+          sudo apt-get install -y -q lsof
+          sudo apt-get install -y -q coreutils
           echo "=======================";
           echo "[DEBUG] Netstat";
           netstat -tulpn | grep :9999;
