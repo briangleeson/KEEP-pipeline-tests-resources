@@ -15,8 +15,8 @@ spec:
           sudo apt-get update -y -q;
           sudo apt-get install -y -q net-tools;
           sudo apt-get install -y -q iputils-ping;
-          sudo apt-get install -y -q lsof
-          sudo apt-get install -y -q coreutils
+          sudo apt-get install -y -q lsof;
+          sudo apt-get install -y -q coreutils;
           echo "=======================";
           echo "[DEBUG] Netstat";
           netstat -tulpn | grep :9999;
