@@ -15,4 +15,9 @@ spec:
           ls -a
           echo "====="
           cd output
+          ls -a
+          echo "====="
+          cd simple-maven-project-with-tests
+          ls -a
+          echo "====="
           sh 'mvn -B -ntp -Dmaven.test.failure.ignore verify'
