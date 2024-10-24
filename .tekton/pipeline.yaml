@@ -16,7 +16,7 @@ spec:
           value: master
         - name: ibmcloud-apikey-secret-key
           value: API_KEY
-        - name: API
+        - name: ibmcloud-api
           value: https://test.cloud.ibm.com
       workspaces:
         - name: output

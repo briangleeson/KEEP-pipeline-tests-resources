@@ -6,7 +6,7 @@ spec:
   params:
     - name: API_KEY
       description: Used to fetch git token from toolchain integration, for cloning repos
-    - name: API
+    - name: ibmcloud-api
       default: https://test.cloud.ibm.com
   resourcetemplates:
     - apiVersion: v1
