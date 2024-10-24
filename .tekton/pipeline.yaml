@@ -6,7 +6,7 @@ spec:
   params:
     - name: API_KEY
   workspaces:
-    - name: pipeline-ws
+    - name: maven-ws
   tasks:
     - name: clone-repo
       taskRef:
@@ -20,7 +20,7 @@ spec:
           value: $(params.API_KEY)
       workspaces:
         - name: output
-          workspace: pipeline-ws
+          workspace: maven-ws
     - name: maven-task
       taskRef:
         name: maven-task

@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: TriggerTemplate
 metadata:
-  name: pipeline-template
+  name: maven-template
 spec:
   params:
     - name: API_KEY
@@ -24,7 +24,7 @@ spec:
 apiVersion: tekton.dev/v1beta1
 kind: TriggerBinding
 metadata:
-  name: pipeline-binding
+  name: maven-binding
 ---
 apiVersion: tekton.dev/v1beta1
 kind: EventListener
@@ -33,6 +33,6 @@ metadata:
 spec:
   triggers:
     - binding:
-        name: pipeline-binding
+        name: maven-binding
       template:
-        name: pipeline-template
+        name: maven-template
