@@ -17,9 +17,9 @@ spec:
       spec:
         pipelineRef:
           name: maven
-          params:
-            - name: API_KEY
-              value: $(params.API_KEY)
+        params:
+          - name: API_KEY
+            value: $(params.API_KEY)
 ---
 apiVersion: tekton.dev/v1beta1
 kind: TriggerBinding
