@@ -7,13 +7,13 @@ spec:
     - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun
       metadata:
-        generateName: sample-pipeline-run-$(uid)
+        generateName: maven-run-$(uid)
         labels:
           triggertemplated: "true"
           generatedBy: "triggers-example"
       spec:
         pipelineRef:
-          name: sample-pipeline
+          name: maven
 ---
 apiVersion: tekton.dev/v1beta1
 kind: TriggerBinding
@@ -23,7 +23,7 @@ metadata:
 apiVersion: tekton.dev/v1beta1
 kind: EventListener
 metadata:
-  name: listener
+  name: mavenListener
 spec:
   triggers:
     - binding:

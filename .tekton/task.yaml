@@ -1,23 +1,11 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: task1
+  name: mavenTask
 spec:
   steps:
-    - name: task-one-step-one
-      image: centos
+    - name: maven-step
+      image: 3.8.3-openjdk-17-slim
       command: ["bash", "-c"]
       args:
-        - echo "=======================";
-          echo "IBM Cloud - Status";
-          echo "Using https://github.com/idsb3t1/KEEP-pipeline-tests-resources.git";
-          echo "Endpoint - https://cloud.ibm.com";
-          echo "=======================";
-          sleep 20;
-          alive=$(curl -s -o /dev/null -L -w %{http_code} https://cloud.ibm.com);
-          if [ "$alive" == "200" ];
-          then
-            echo "TEST PASS - $alive"; exit 0;
-          else
-            echo "TEST FAIL - $alive"; exit 1;
-          fi
+        - sh 'mvn -B -ntp -Dmaven.test.failure.ignore verify'

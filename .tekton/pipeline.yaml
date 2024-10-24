@@ -1,9 +1,22 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: sample-pipeline
+  name: maven
 spec:
+  workspaces:
+    - name: pipeline-ws
   tasks:
-    - name: task1
+    - name: clone-repo
       taskRef:
-        name: task1
+        name: git-clone-repo
+      params:
+        - name: repository
+          value: https://github.com/briangleeson/simple-maven-project-with-tests
+        - name: branch
+          value: master
+      workspaces:
+        - name: output
+          workspace: pipeline-ws
+    - name: mavenTask
+      taskRef:
+        name: mavenTask
