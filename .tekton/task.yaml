@@ -13,4 +13,6 @@ spec:
       args:
         - |
           ls -a
+          echo "====="
+          cd output
           sh 'mvn -B -ntp -Dmaven.test.failure.ignore verify'
