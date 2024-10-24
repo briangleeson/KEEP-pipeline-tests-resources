@@ -12,12 +12,7 @@ spec:
       command: ["bash", "-c"]
       args:
         - |
-          ls -a
-          echo "====="
           cd output
-          ls -a
-          echo "====="
-          cd simple-maven-project-with-tests
-          ls -a
-          echo "====="
           mvn -B -ntp -Dmaven.test.failure.ignore verify
+          echo "====="
+          echo "Tests complete"
