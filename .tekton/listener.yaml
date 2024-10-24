@@ -1,4 +1,4 @@
-apiVersion: tekton.dev/v1beta1
+apiVersion: v1
 kind: TriggerTemplate
 metadata:
   name: maven-template
@@ -7,7 +7,18 @@ spec:
     - name: API_KEY
       description: Used to fetch git token from toolchain integration, for cloning repos
   resourcetemplates:
-    - apiVersion: tekton.dev/v1beta1
+    - apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
+        name: maven-$(uid)-pvc
+      spec:
+        resources:
+          requests:
+            storage: 5Gi
+        volumeMode: Filesystem
+        accessModes:
+          - ReadWriteOnce
+    - apiVersion: v1
       kind: PipelineRun
       metadata:
         generateName: maven-run-$(uid)
@@ -20,6 +31,10 @@ spec:
         params:
           - name: API_KEY
             value: $(params.API_KEY)
+        workspaces:
+          - name: maven-ws
+            persistentVolumeClaim:
+              claimName: maven-$(uid)-pvc
 ---
 apiVersion: tekton.dev/v1beta1
 kind: TriggerBinding
