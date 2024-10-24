@@ -20,4 +20,4 @@ spec:
           cd simple-maven-project-with-tests
           ls -a
           echo "====="
-          sh 'mvn -B -ntp -Dmaven.test.failure.ignore verify'
+          mvn -B -ntp -Dmaven.test.failure.ignore verify
