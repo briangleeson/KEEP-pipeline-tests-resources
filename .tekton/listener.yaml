@@ -3,6 +3,9 @@ kind: TriggerTemplate
 metadata:
   name: pipeline-template
 spec:
+  params:
+    - name: API_KEY
+      description: Used to fetch git token from toolchain integration, for cloning repos
   resourcetemplates:
     - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun
@@ -14,6 +17,9 @@ spec:
       spec:
         pipelineRef:
           name: maven
+          params:
+            - name: API_KEY
+              value: $(params.API_KEY)
 ---
 apiVersion: tekton.dev/v1beta1
 kind: TriggerBinding

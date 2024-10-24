@@ -3,6 +3,8 @@ kind: Pipeline
 metadata:
   name: maven
 spec:
+  params:
+    - name: API_KEY
   workspaces:
     - name: pipeline-ws
   tasks:
@@ -14,6 +16,8 @@ spec:
           value: https://github.com/briangleeson/simple-maven-project-with-tests
         - name: branch
           value: master
+        - name: ibmcloud-apikey-secret-key
+          value: $(params.API_KEY)
       workspaces:
         - name: output
           workspace: pipeline-ws
