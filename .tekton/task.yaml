@@ -12,6 +12,16 @@ spec:
       command: ["bash", "-c"]
       args:
         - |
+          echo "====="
+          echo "Pre-test install"
+          apt-get update && apt-get install -y bash curl iputils-ping net-tools
+          echo "====="
+          echo "Pre-test checks"
+          echo "hostname"
+          hostname;
+          echo "whoami"
+          whoami;
+          echo "====="
           cd output
           mvn -B -ntp -Dmaven.test.failure.ignore verify
           echo "====="
