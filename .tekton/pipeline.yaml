@@ -24,3 +24,8 @@ spec:
     - name: maven-task
       taskRef:
         name: maven-task
+      runAfter:
+        - clone-repo
+      workspaces:
+        - name: output
+          workspace: maven-ws
