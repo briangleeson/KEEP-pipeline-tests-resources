@@ -7,7 +7,6 @@ spec:
     - name: API_KEY
       description: Used to fetch git token from toolchain integration, for cloning repos
     - name: ibmcloud-api
-      default: https://test.cloud.ibm.com
   resourcetemplates:
     - apiVersion: v1
       kind: PersistentVolumeClaim
@@ -34,7 +33,7 @@ spec:
           - name: API_KEY
             value: $(params.API_KEY)
           - name: ibmcloud-api
-            value: $(params.API)
+            value: $(params.ibmcloud-api)
         workspaces:
           - name: maven-ws
             persistentVolumeClaim:
