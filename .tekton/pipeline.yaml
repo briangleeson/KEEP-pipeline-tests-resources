@@ -17,6 +17,6 @@ spec:
       workspaces:
         - name: output
           workspace: pipeline-ws
-    - name: mavenTask
+    - name: maven-task
       taskRef:
-        name: mavenTask
+        name: maven-task

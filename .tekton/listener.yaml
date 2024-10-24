@@ -23,7 +23,7 @@ metadata:
 apiVersion: tekton.dev/v1beta1
 kind: EventListener
 metadata:
-  name: mavenListener
+  name: maven-listener
 spec:
   triggers:
     - binding:
