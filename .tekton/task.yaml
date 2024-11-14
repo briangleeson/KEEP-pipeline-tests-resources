@@ -3,6 +3,9 @@ kind: Task
 metadata:
   name: task1
 spec:
+  workspaces:
+  - name: output
+    mountPath: /output
   steps:
     - name: task-one-step-one
       image: icr.io/continuous-delivery/pipeline/pipeline-base-image:2.66
