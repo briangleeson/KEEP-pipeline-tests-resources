@@ -22,7 +22,7 @@ spec:
           npm install -g npm@10.9.0 && echo "Done 10.9.0";
           npm version;
           echo "=======================";
-          npm install echo "Done installing";
+          npm install && echo "Done installing";
           echo "=======================";
           echo "Its over";
           echo "=======================";
