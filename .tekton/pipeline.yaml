@@ -14,7 +14,7 @@ spec:
         name: git-clone-repo
       params:
         - name: repository
-          value: https://github.com/briangleeson/continuous-delivery-node-sdk
+          value: https://github.com/briangleeson/continuous-delivery-node-sdk.git
         - name: branch
           value: networking
         - name: ibmcloud-apikey-secret-key
