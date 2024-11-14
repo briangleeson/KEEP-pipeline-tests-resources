@@ -3,7 +3,32 @@ kind: Pipeline
 metadata:
   name: sample-pipeline
 spec:
+  params:
+    - name: ibmcloud-api
+      default: https://cloud.ibm.com
+  workspaces:
+    - name: npmtest
   tasks:
+    - name: clone-repo
+      taskRef:
+        name: git-clone-repo
+      params:
+        - name: repository
+          value: https://github.com/briangleeson/continuous-delivery-node-sdk
+        - name: branch
+          value: networking
+        - name: ibmcloud-apikey-secret-key
+          value: API_KEY
+        - name: ibmcloud-api
+          value: $(params.ibmcloud-api)
+      workspaces:
+        - name: output
+          workspace: npmtest
     - name: task1
       taskRef:
         name: task1
+      runAfter:
+        - clone-repo
+      workspaces:
+        - name: output
+          workspace: npmtest
