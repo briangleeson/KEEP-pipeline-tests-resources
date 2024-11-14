@@ -14,8 +14,8 @@ spec:
         - echo "=======================";
           echo "Test npm installs";
           echo "=======================";
-          cd output
-          ls -a
+          cd output;
+          ls -a;
           echo "=======================";
           cd continuous-delivery-node-sdk;
           ls -a;
