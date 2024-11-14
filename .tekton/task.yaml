@@ -15,5 +15,5 @@ spec:
           echo "=======================";
           npm install -g npm@10.9.0 && echo "Done 10.9.0";
           echo "=======================";
-          echo "Its over"
+          echo "Its over";
           echo "=======================";
