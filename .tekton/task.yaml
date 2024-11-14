@@ -11,6 +11,9 @@ spec:
         - echo "=======================";
           echo "Test npm installs";
           echo "=======================";
+          cd continuous-delivery-node-sdk;
+          ls -a;
+          echo "=======================";
           npm install -g npm@10.3.0 && echo "Done 10.3.0";
           npm version;
           echo "=======================";
