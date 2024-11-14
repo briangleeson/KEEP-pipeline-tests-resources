@@ -5,13 +5,15 @@ metadata:
 spec:
   steps:
     - name: task-one-step-one
-      image: centos
+      image: icr.io/continuous-delivery/pipeline/pipeline-base-image:2.66
       command: ["bash", "-c"]
       args:
         - echo "=======================";
           echo "Test npm install 10.9.0";
           echo "=======================";
-          npm install -g npm@10.9.0 && echo "Done";
+          npm install -g npm@10.3.0 && echo "Done 10.3.0";
+          echo "=======================";
+          npm install -g npm@10.9.0 && echo "Done 10.9.0";
           echo "=======================";
           echo "Its over"
           echo "=======================";
