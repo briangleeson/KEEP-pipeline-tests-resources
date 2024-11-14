@@ -7,7 +7,7 @@ spec:
     - name: ibmcloud-api
       default: https://cloud.ibm.com
   workspaces:
-    - name: npmtest
+    - name: npm-ws
   tasks:
     - name: clone-repo
       taskRef:
@@ -23,7 +23,7 @@ spec:
           value: $(params.ibmcloud-api)
       workspaces:
         - name: output
-          workspace: npmtest
+          workspace: npm-ws
     - name: task1
       taskRef:
         name: task1
@@ -31,4 +31,4 @@ spec:
         - clone-repo
       workspaces:
         - name: output
-          workspace: npmtest
+          workspace: npm-ws
