@@ -1,10 +1,25 @@
-apiVersion: tekton.dev/v1beta1
+apiVersion: v1
 kind: TriggerTemplate
 metadata:
   name: pipeline-template
 spec:
+  params:
+    - name: API_KEY
+      description: Used to fetch git token from toolchain integration, for cloning repos
+    - name: ibmcloud-api
   resourcetemplates:
-    - apiVersion: tekton.dev/v1beta1
+    - apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
+        name: npm-$(uid)-pvc
+      spec:
+        resources:
+          requests:
+            storage: 5Gi
+        volumeMode: Filesystem
+        accessModes:
+          - ReadWriteOnce
+    - apiVersion: v1
       kind: PipelineRun
       metadata:
         generateName: sample-pipeline-run-$(uid)
@@ -14,6 +29,15 @@ spec:
       spec:
         pipelineRef:
           name: sample-pipeline
+        params:
+          - name: API_KEY
+            value: $(params.API_KEY)
+          - name: ibmcloud-api
+            value: $(params.ibmcloud-api)
+        workspaces:
+          - name: npm-ws
+            persistentVolumeClaim:
+              claimName: npm-$(uid)-pvc
 ---
 apiVersion: tekton.dev/v1beta1
 kind: TriggerBinding
