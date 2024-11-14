@@ -9,11 +9,13 @@ spec:
       command: ["bash", "-c"]
       args:
         - echo "=======================";
-          echo "Test npm install 10.9.0";
+          echo "Test npm installs";
           echo "=======================";
           npm install -g npm@10.3.0 && echo "Done 10.3.0";
+          npm version;
           echo "=======================";
           npm install -g npm@10.9.0 && echo "Done 10.9.0";
+          npm version;
           echo "=======================";
           echo "Its over";
           echo "=======================";
