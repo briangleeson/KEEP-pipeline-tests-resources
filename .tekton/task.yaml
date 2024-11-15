@@ -8,7 +8,7 @@ spec:
     mountPath: /output
   steps:
     - name: task-one-step-one
-      image: icr.io/continuous-delivery/pipeline/pipeline-base-image:2.51
+      image: icr.io/continuous-delivery/pipeline/pipeline-base-image:2.66
       command: ["bash", "-c"]
       args:
         - echo "=======================";
