@@ -1,0 +1,91 @@
+apiVersion: tekton.dev/v1beta1
+kind: EventListener
+metadata:
+  name: ilab-cli-plugin-publish-pr-push-event-listener
+spec:
+  triggers:
+    - name: ilab-cli-plugin-publish-pr-push-trigger
+      bindings:
+        - ref: ilab-cli-plugin-publish-pr-push-trigger-binding
+      template:
+        ref: ilab-cli-plugin-publish-pr-push-trigger-template
+---
+apiVersion: tekton.dev/v1beta1
+kind: TriggerBinding
+metadata:
+  name: ilab-cli-plugin-publish-pr-push-trigger-binding
+spec:
+  params:
+    - name: payload
+      value: $(body)
+---
+apiVersion: tekton.dev/v1beta1
+kind: TriggerTemplate
+metadata:
+  name: ilab-cli-plugin-publish-pr-push-trigger-template
+spec:
+  params:
+    - name: payload
+      type: object
+  resourcetemplates:
+    - apiVersion: tekton.dev/v1beta1
+      kind: PipelineRun
+      metadata:
+        generateName: publish-pipeline-run
+      spec:
+        pipelineRef:
+          name: publish-pipeline
+        params:
+          - name: payload
+            value: $(params.payload)
+---
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: publish-pipeline
+spec:
+  params:
+    - name: payload
+      type: object
+  tasks:
+    - name: publish
+      taskRef:
+        name: publish-task
+      params:
+        - name: payload
+          value: $(params.payload)
+---
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: publish-task
+spec:
+  params:
+    - name: payload
+      type: object
+      properties:
+        url:
+          type: string
+        test:
+          type: string
+  steps:
+    - name: execute
+      image: icr.io/continuous-delivery/toolchains/devsecops/baseimage:latest
+      env:
+        - name: GIT_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: secure-properties
+              key: git-token
+        - name: JENKINS_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: secure-properties
+              key: jenkins-token
+        - name: GO_VERSION
+          valueFrom:
+            configMapKeyRef:
+              name: environment-properties
+              key: go-version
+      script: |
+        echo "test"
