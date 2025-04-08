@@ -18,6 +18,6 @@ spec:
         - echo "=======================";
           echo "BRANCH - $BRANCH";
           echo "=======================";
-          echo "params.BRANCH - ${params.BRANCH)";
+          echo "params.BRANCH - $(params.BRANCH)";
           echo "=======================";
           exit 0;
