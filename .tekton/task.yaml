@@ -8,6 +8,11 @@ spec:
       default: default
   steps:
     - name: task-one-step-one
+      env:
+        - name: BRANCH
+          value: $(params.BRANCH)
+        - name: ECHO2
+          value: $(params.BRANCH)
       image: icr.io/continuous-delivery/pipeline/pipeline-base-image
       command: ["bash", "-c"]
       args:
