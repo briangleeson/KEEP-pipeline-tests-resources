@@ -3,6 +3,8 @@ kind: Task
 metadata:
   name: task1
 spec:
+  params:
+    - name: BRANCH
   steps:
     - name: task-one-step-one
       image: icr.io/continuous-delivery/pipeline/pipeline-base-image
