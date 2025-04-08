@@ -13,6 +13,4 @@ spec:
         - echo "=======================";
           echo "BRANCH - $BRANCH";
           echo "=======================";
-          get_env BRANCH;
-          echo "=======================";
           exit 0;
