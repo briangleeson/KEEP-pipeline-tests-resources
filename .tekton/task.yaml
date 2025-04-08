@@ -9,7 +9,7 @@ spec:
       command: ["bash", "-c"]
       args:
         - echo "=======================";
-          echo "BRANCH: $BRANCH";
+          echo "BRANCH - $BRANCH";
           echo "=======================";
           get_env BRANCH;
           echo "=======================";
