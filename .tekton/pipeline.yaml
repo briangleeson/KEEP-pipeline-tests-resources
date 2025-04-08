@@ -5,6 +5,7 @@ metadata:
 spec:
   params:
     - name: BRANCH
+      default: default
   tasks:
     - name: task1
       taskRef:
