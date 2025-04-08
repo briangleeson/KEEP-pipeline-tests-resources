@@ -6,7 +6,6 @@ spec:
   params:
     - name: BRANCH
       description: branch name
-      default: master
   resourcetemplates:
     - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun
