@@ -3,7 +3,12 @@ kind: Pipeline
 metadata:
   name: sample-pipeline
 spec:
+  params:
+    - name: BRANCH
   tasks:
     - name: task1
       taskRef:
         name: task1
+      params:
+        - name: BRANCH
+          value: $(params.BRANCH)
