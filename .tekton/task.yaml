@@ -5,7 +5,7 @@ metadata:
 spec:
   steps:
     - name: task-one-step-one
-      image: centos
+      image: icr.io/continuous-delivery/pipeline/pipeline-base-image
       command: ["bash", "-c"]
       args:
         - echo "=======================";
