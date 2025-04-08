@@ -5,6 +5,7 @@ metadata:
 spec:
   params:
     - name: BRANCH
+      default: default
   steps:
     - name: task-one-step-one
       image: icr.io/continuous-delivery/pipeline/pipeline-base-image
