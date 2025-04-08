@@ -16,6 +16,9 @@ spec:
           triggertemplated: "true"
           generatedBy: "triggers-example"
       spec:
+        params:
+          - name: BRANCH
+            value: $(params.BRANCH)
         pipelineRef:
           name: sample-pipeline
 ---
