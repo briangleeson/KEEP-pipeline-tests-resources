@@ -50,7 +50,7 @@ spec:
     - name: task2-step-two
       image: icr.io/continuous-delivery/pipeline/pipeline-base-image
       command: ['bash']
-      args: ['-c', '[[ $((1 + RANDOM % 3)) == 1 ]] && echo Some logs || fail']
+      args: ['-c', 'echo Some logs']
 ---
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
@@ -74,6 +74,6 @@ spec:
             imagePullPolicy: IfNotPresent
             command: ["bash", "-c"]
             args:
-              - echo "[task3-step1][1]=====";
-                echo "::debug::[task3-step1]step 1 from task 3, an inline task";
-                echo "[task3-step1][3]=====";
+              - echo "[task3-step1]=====";
+                echo "::debug::[task3-step1] inline task";
+                echo "[task3-step1]=====";
