@@ -14,7 +14,7 @@ spec:
           echo "Endpoint - https://cloud.ibm.com";
           echo "=======================";
           echo "sleep for 6 minutes...";
-          sleep 360;
+          sleep 90;
           echo "=======================";
           alive=$(curl -s -o /dev/null -L -w %{http_code} https://cloud.ibm.com);
           if [ "$alive" == "200" ];
