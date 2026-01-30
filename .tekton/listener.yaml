@@ -1,32 +1,26 @@
 apiVersion: tekton.dev/v1beta1
 kind: TriggerTemplate
 metadata:
-  name: pipeline-template
+  name: slow-pipeline-template
 spec:
   resourcetemplates:
     - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun
       metadata:
-        generateName: sample-pipeline-run-$(uid)
+        generateName: slow-pipeline-run-$(uid)
         labels:
           triggertemplated: "true"
           generatedBy: "triggers-example"
       spec:
         pipelineRef:
-          name: sample-pipeline
----
-apiVersion: tekton.dev/v1beta1
-kind: TriggerBinding
-metadata:
-  name: pipeline-binding
+          name: slow-pipeline
 ---
 apiVersion: tekton.dev/v1beta1
 kind: EventListener
 metadata:
-  name: listener
+  name: slow-listener
 spec:
   triggers:
-    - binding:
-        name: pipeline-binding
+    - bindings: []
       template:
-        name: pipeline-template
+        name: slow-pipeline-template
